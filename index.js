@@ -39,7 +39,7 @@ function buildPage(movies) {
 
     async function fetchRatings(x) {
       const sent = await fetch(
-        `http://www.omdbapi.com/?apikey=cd31925c&i=${x}`
+        `https://www.omdbapi.com/?apikey=cd31925c&i=${x}`
       );
       data = await sent.json();
 
