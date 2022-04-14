@@ -9,17 +9,14 @@ function query() {
 
 async function loadMovie(keyword) {
   const URL = await fetch(
-    `http://www.omdbapi.com/?s=${keyword}&page=1&apikey=cd31925c`
+    `https://www.omdbapi.com/?s=${keyword}&page=1&apikey=cd31925c`
   );
   const data = await URL.json();
 
   if (data.Response === "True") {
-    // Sending to the main DOM constructor
         buildPage(data.Search);
     }
   else {
-    // Watch the design inspiration from Streaming platforms
-    // Use HTML DOM to show the error in animated format
     document.getElementById("container").innerHTML = null;
     let result = document.createElement("div");
     result.setAttribute("id", "error");
@@ -42,8 +39,7 @@ function buildPage(movies) {
         `https://www.omdbapi.com/?apikey=cd31925c&i=${x}`
       );
       data = await sent.json();
-
-      // LET'S BUILD THE HTML DOM
+      
       let box = document.createElement("div");
       box.setAttribute("class", "box reveal");
 
